@@ -1,0 +1,91 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.innerCardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 36px;
+  color: #444;
+}
+
+li {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  overflow: hidden;
+  position: relative;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 50%;
+  /*object-fit: cover;*/
+  /*object-position: center center;*/
+  transition: opacity 0.5s ease-in-out;
+}
+
+.circle {
+  position: relative;
+}
+
+ .circle .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.circle .overlay :hover{
+  opacity: 1;
+  z-index: 1;
+}
+
+li.card {
+  animation: rotateColors 6s linear infinite;
+}
+
+
+li:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+img:hover {
+  opacity: 0;
+  animation: swirlFadeOut 3s ease-in-out forwards;
+}
+
+@keyframes swirlFadeOut {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+}
